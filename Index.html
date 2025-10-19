@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Idealizart</title>
+  <style>
+    body {
+      background-color: rgb(224, 179, 255);
+      margin: 0;
+      min-height: 100vh;
+    }
+
+    #painel {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    #h1 {
+      background-color: pink;
+      -webkit-text-stroke: 5px purple;
+      color: #ff0;
+      border-radius: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      width: 1500px;
+      font-size: 200px;
+      margin: 0 auto;
+      font-family: Georgia;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
+    
+    #h2 {
+      background-color: #fff;
+      color: #000;
+      border-radius: 15px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 300px;
+      width: 1500px;
+      font-size: 200px;
+      margin: 0 auto;
+      top: 200px;
+      font-family: Georgia;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
+
+    #p1 {
+      color: rgb(255, 225, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #fa6672a5;
+      width: 1500px;
+      height: 155px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: clamp(60px, 10vw, 120px);
+      margin: 0 auto;
+      position: relative;
+      top: 300px;
+      z-index: 2;
+      font-family: Georgia, Serif;
+      font-weight: bold;
+    }
+
+    #p2 {
+      color: rgb(125, 255, 0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #faf;
+      -webkit-text-stroke: 4px black;
+      width: 1000px;
+      height: 155px;
+      text-align: center;
+      border-radius: 20px;
+      font-size: clamp(40px, 10vw, 120px);
+      position: relative;
+      top: 400px;
+      left: 250px;
+      z-index: 2;
+      font-family: "Times New Roman";
+      font-weight: bold;
+    }
+
+    #imagem, #imagem2, #imagem3, #imagem4 {
+      width: 600px;
+      height: 600px;
+      position: absolute;
+      border-radius: 25px;
+      z-index: 2;
+      background-size: cover;
+      background-position: center;
+    }
+
+    #imagem { background-image: url("https://i.postimg.cc/7Pt2Dkpd/IMG-20251013-161818-023226.jpg"); top: 115%; left: 80%; }
+    #imagem2 { background-image: url("https://i.postimg.cc/nLV3gZ8x/IMG-20251014-151059-022956.jpg"); top: 75%; left: 80%; }
+    #imagem3 { background-image: url("https://i.postimg.cc/MXksFQwB/IMG-20251017-142820-022751.jpg"); top: 75%; left: 10%; }
+    #imagem4 { background-image: url("https://i.postimg.cc/HnSY0TCW/IMG-20251013-161955-023204.jpg"); top: 115%; left: 10%; }
+
+    #butao {
+      background-color: #0ff;
+      border-radius: 20px;
+      border: 5px solid black;
+      font-family: "Courier New";
+      width: 600px;
+      font-size: 100px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      margin: 2500px auto 0 auto;
+      left: 30%;
+      z-index: 2;
+    }
+
+    #p3 {
+      background-color: #00f0;
+      border-radius: 20px;
+      font-family: "Times New Roman", Monospace;
+      width: 600px;
+      font-size: 100px;
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      margin: -450px auto 0 auto;
+      left: 30%;
+      z-index: 2;
+    }
+  </style>
+</head>
+<body>
+  <video id="painel" autoplay loop muted 
+    src="https://github.com/JohnDevz/Video/raw/refs/heads/main/Hailuo_Video_Video%20of%20a%20seamless,%20looping%20b_436122072558784520.mp4">
+  </video>
+
+  <div id="h1">Idealizart</div>
+  <div id="h2"></div>
+  <div id="p1">Produtos Personalizados</div>
+  <div id="p2">Modelos</div>
+  <div id="imagem"></div>
+  <div id="imagem2"></div>
+  <div id="imagem3"></div>
+  <div id="imagem4"></div>
+  <button id="butao" onclick="clicou()">Entrar em contato</button>
+  <p id="p3">Telefone: 5599981031483</p>
+  
+  <script>
+    
+    const urlParams = new URLSearchParams(window.location.search);
+const texto = urlParams.get('texto');
+var boasvindas = document.getElementById("h2");
+boasvindas.textContent = "Olá, " + texto;
+
+if (!texto) {
+  window.location.href = "https://johndevz.github.io/Login-idealizartz/"
+}
+    
+    function clicou() {
+      window.open(`https://wa.me/5599981031483`);
+    }
+  </script>
+</body>
+</html>
