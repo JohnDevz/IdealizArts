@@ -168,11 +168,13 @@
     const urlParams = new URLSearchParams(window.location.search);
 const texto = urlParams.get('texto');
 var boasvindas = document.getElementById("h2");
-boasvindas.textContent = "Olá, " + texto;
 
-if (!texto) {
-  window.location.href = "https://johndevz.github.io/Login-idealizartz/"
-}
+// CORREÇÃO: Verificar se texto é null, undefined ou string vazia
+if (!texto || texto.trim() === "") {
+  window.location.href = "https://johndevz.github.io/Login-idealizartz/";
+} else {
+  boasvindas.textContent = "Olá, " + texto;
+    }
     
     function clicou() {
       window.open(`https://wa.me/5599981031483`);
