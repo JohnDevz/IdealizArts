@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Idealizart Login</title>
+  <title>Idealizart Principal</title>
   <style>
     body {
       background-color: pink;
       margin: 0;
       padding: 0;
-      overflow-x: hidden;
     }
 
     p {
@@ -16,7 +15,7 @@
       border: 5px solid black;
       -webkit-text-stroke: 2px black;
       font-family: "Times New Roman";
-      font-size: 150px;
+      font-size: 80px;
       text-align: center;
       border-radius: 25px;
       width: 80%;
@@ -25,137 +24,82 @@
       display: block;
     }
 
-    #h2 {
-      color: black;
+    #nomeUsuario {
+      text-align: center;
+      font-size: 60px;
+      margin-top: 100px;
       font-family: Trebuchet MS;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 100px;
-      margin-top: 300px;
     }
 
-    .container {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100px;
-      width: 100%;
-      margin-top: 50px;
-    }
-
-    #caixa {
-      width: 70%;
-      height: 100px;
-      background-color: black;
-      color: white;
-      font-size: 100px;
-      font-family: Georgia;
-    }
-
-    #botao {
+    #botaoSair {
       display: block;
-      margin: 100px auto;
-      height: 100px;
-      width: 600px;
-      font-size: 100px;
-      border: 5px solid black;
-      border-radius: 25px;
+      margin: 50px auto;
+      height: 70px;
+      width: 250px;
+      font-size: 30px;
+      border: 3px solid black;
+      border-radius: 20px;
+      background-color: white;
+      cursor: pointer;
+      transition: 0.3s;
     }
 
-    #botao:hover {
-      background-color: #0f0;
-    }
-
-    .img {
-      position: absolute;
-      width: 150px;
-      height: auto;
-    }
-
-    #img1 { top: 50px; left: 30px; }
-    #img2 { top: 50px; right: 30px; }
-    #img3 { bottom: 50px; left: 50px; }
-    #img4 { bottom: 50px; right: 50px; }
-
-    @media (min-width: 1024px) {
-      p {
-        font-size: 70px;
-        width: 50%;
-        margin-top: 80px;
-      }
-
-      #h2 {
-        font-size: 50px;
-        margin-top: 120px;
-      }
-
-      .container {
-        height: 80px;
-        margin-top: 30px;
-      }
-
-      #caixa {
-        width: 30%;
-        height: 70px;
-        font-size: 40px;
-      }
-
-      #botao {
-        height: 70px;
-        width: 250px;
-        font-size: 35px;
-        margin-top: 80px;
-      }
-
-      .img {
-        width: 120px;
-      }
-
-      #img1 { top: 40px; left: 80px; }
-      #img2 { top: 40px; right: 80px; }
-      #img3 { bottom: 60px; left: 100px; }
-      #img4 { bottom: 60px; right: 100px; }
+    #botaoSair:hover {
+      background-color: #f44;
+      color: white;
     }
   </style>
 </head>
 <body>
-  <img id="img1" class="img" src="img1.png">
-  <img id="img2" class="img" src="img2.png">
-  <img id="img3" class="img" src="img3.png">
-  <img id="img4" class="img" src="img4.png">
+  <p>Idealizart</p>
+  <div id="nomeUsuario">Carregando...</div>
+  <button id="botaoSair">Sair</button>
 
-  <p>Idealizart Login</p>
-  <div id="h2">Digite Seu Nome</div>
-  <div class="container">
-    <input id="caixa" maxlength="10" type="text">
-  </div>
-  <button id="botao" onclick="clicou()">Entrar</button>
-  
-  <script>
-if (localStorage.getItem("teste")) {
-  window.location.replace(`https://johndevz.github.io/IdealizArts/?texto=${localStorage.getItem("teste")}`);
-}
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase, ref, get, child } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
 
-function clicou() {
-  var caixa = document.getElementById("caixa");
-  var texto = caixa.value;
+    const firebaseConfig = {
+      apiKey: "AIzaSyAtC-PshZiuj-DpCZdOukwe5WXJRWE8C2g",
+      authDomain: "idealizart-login.firebaseapp.com",
+      projectId: "idealizart-login",
+      storageBucket: "idealizart-login.firebasestorage.app",
+      messagingSenderId: "387587698445",
+      appId: "1:387587698445:web:8914b7c674a5d2abfc0a44"
+    };
 
-  if (texto.length < 3 || texto.length > 10) {
-    alert("Nome deve ter entre 3 e 10 letras");
-    caixa.value = "";
-    return;
-  }
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
 
-  if (texto.match(/\d/)) {
-    alert("O nome não pode ter números");
-    caixa.value = "";
-    return;
-  }
+    const usuario = sessionStorage.getItem("usuario");
+    const nomeDiv = document.getElementById("nomeUsuario");
 
-  localStorage.setItem("teste", texto);
-  window.location.replace(`https://johndevz.github.io/IdealizArts/?texto=${texto}`);
-}
-</script>
+    if (!usuario) {
+      window.location.replace("login.html");
+    } else {
+      const dbRef = ref(db);
+      get(child(dbRef, `usuarios/${usuario}`))
+        .then((snapshot) => {
+          if (snapshot.exists()) {
+            nomeDiv.textContent = `Olá, ${snapshot.val().nome}!`;
+          } else {
+            alert("Usuário não encontrado. Faça login novamente.");
+            sessionStorage.removeItem("usuario");
+            window.location.replace("login.html");
+          }
+        })
+        .catch((error) => {
+          console.error(error);
+          alert("Erro ao acessar o banco. Faça login novamente.");
+          sessionStorage.removeItem("usuario");
+          window.location.replace("login.html");
+        });
+    }
+
+    document.getElementById("botaoSair").onclick = () => {
+      sessionStorage.removeItem("usuario");
+      window.location.replace("login.html");
+    };
+  </script>
 </body>
 </html>
