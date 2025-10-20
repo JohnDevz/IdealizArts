@@ -7,6 +7,7 @@
       background-color: pink;
       margin: 0;
       padding: 0;
+      overflow-x: hidden;
     }
 
     p {
@@ -66,6 +67,17 @@
       background-color: #0f0;
     }
 
+    .img {
+      position: absolute;
+      width: 150px;
+      height: auto;
+    }
+
+    #img1 { top: 50px; left: 30px; }
+    #img2 { top: 50px; right: 30px; }
+    #img3 { bottom: 50px; left: 50px; }
+    #img4 { bottom: 50px; right: 50px; }
+
     @media (min-width: 1024px) {
       p {
         font-size: 70px;
@@ -95,10 +107,24 @@
         font-size: 35px;
         margin-top: 80px;
       }
+
+      .img {
+        width: 120px;
+      }
+
+      #img1 { top: 40px; left: 80px; }
+      #img2 { top: 40px; right: 80px; }
+      #img3 { bottom: 60px; left: 100px; }
+      #img4 { bottom: 60px; right: 100px; }
     }
   </style>
 </head>
 <body>
+  <img id="img1" class="img" src="img1.png">
+  <img id="img2" class="img" src="img2.png">
+  <img id="img3" class="img" src="img3.png">
+  <img id="img4" class="img" src="img4.png">
+
   <p>Idealizart Login</p>
   <div id="h2">Digite Seu Nome</div>
   <div class="container">
