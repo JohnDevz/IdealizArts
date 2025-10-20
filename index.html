@@ -7,6 +7,7 @@
       background-color: rgb(224, 179, 255);
       margin: 0;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     #painel {
@@ -23,25 +24,25 @@
       background-color: pink;
       -webkit-text-stroke: 5px purple;
       color: #ff0;
-      border-radius: 15px;
+      border-radius: 25px;
       text-align: center;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 200px;
+      height: 250px;
       width: 90%;
       font-size: 120px;
-      margin: 100px auto 0 auto;
+      margin: 80px auto 0 auto;
       font-family: Georgia;
       font-weight: bold;
       position: relative;
       z-index: 2;
     }
-    
+
     #h2 {
       background-color: #fff;
       color: #000;
-      border-radius: 15px;
+      border-radius: 25px;
       text-align: center;
       display: flex;
       justify-content: center;
@@ -52,7 +53,7 @@
       word-break: break-all;
       white-space: nowrap;
       font-size: 100px;
-      margin: 100px auto 0 auto;
+      margin: 80px auto 0 auto;
       font-family: Georgia;
       font-weight: bold;
       position: relative;
@@ -66,10 +67,10 @@
       align-items: center;
       background-color: #fa6672a5;
       width: 90%;
-      height: 150px;
+      height: 160px;
       text-align: center;
-      border-radius: 20px;
-      font-size: clamp(60px, 8vw, 100px);
+      border-radius: 25px;
+      font-size: clamp(60px, 7vw, 100px);
       margin: 100px auto 0 auto;
       position: relative;
       z-index: 2;
@@ -85,10 +86,10 @@
       background-color: #faf;
       -webkit-text-stroke: 4px black;
       width: 80%;
-      height: 150px;
+      height: 160px;
       text-align: center;
-      border-radius: 20px;
-      font-size: clamp(40px, 8vw, 100px);
+      border-radius: 25px;
+      font-size: clamp(40px, 7vw, 100px);
       position: relative;
       margin: 100px auto 0 auto;
       z-index: 2;
@@ -106,19 +107,19 @@
       background-position: center;
     }
 
-    #imagem { background-image: url("https://i.postimg.cc/7Pt2Dkpd/IMG-20251013-161818-023226.jpg"); top: 200%; left: 70%; }
-    #imagem2 { background-image: url("https://i.postimg.cc/nLV3gZ8x/IMG-20251014-151059-022956.jpg"); top: 150%; left: 70%; }
-    #imagem3 { background-image: url("https://i.postimg.cc/MXksFQwB/IMG-20251017-142820-022751.jpg"); top: 150%; left: 10%; }
-    #imagem4 { background-image: url("https://i.postimg.cc/HnSY0TCW/IMG-20251013-161955-023204.jpg"); top: 200%; left: 10%; }
+    #imagem { background-image: url("https://i.postimg.cc/7Pt2Dkpd/IMG-20251013-161818-023226.jpg"); top: 190%; left: 70%; }
+    #imagem2 { background-image: url("https://i.postimg.cc/nLV3gZ8x/IMG-20251014-151059-022956.jpg"); top: 140%; left: 70%; }
+    #imagem3 { background-image: url("https://i.postimg.cc/MXksFQwB/IMG-20251017-142820-022751.jpg"); top: 140%; left: 10%; }
+    #imagem4 { background-image: url("https://i.postimg.cc/HnSY0TCW/IMG-20251013-161955-023204.jpg"); top: 190%; left: 10%; }
 
     #butao {
       background-color: #0ff;
-      border-radius: 20px;
+      border-radius: 25px;
       border: 5px solid black;
       font-family: "Courier New";
       width: 80%;
       font-size: 80px;
-      height: 150px;
+      height: 180px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -131,7 +132,7 @@
 
     #p3 {
       background-color: transparent;
-      border-radius: 20px;
+      border-radius: 25px;
       font-family: "Times New Roman", Monospace;
       width: 80%;
       font-size: 70px;
@@ -147,29 +148,29 @@
 
     @media (min-width: 1024px) {
       #h1 {
+        width: 60%;
         height: 300px;
-        width: 70%;
         font-size: 180px;
-        margin-top: 150px;
+        margin-top: 120px;
       }
 
       #h2 {
+        width: 60%;
         height: 250px;
-        width: 70%;
         font-size: 150px;
         margin-top: 150px;
       }
 
       #p1 {
-        width: 70%;
-        height: 180px;
+        width: 60%;
+        height: 200px;
         font-size: 120px;
         margin-top: 200px;
       }
 
       #p2 {
-        width: 60%;
-        height: 180px;
+        width: 50%;
+        height: 200px;
         font-size: 100px;
         margin-top: 150px;
       }
@@ -179,23 +180,23 @@
         height: 600px;
       }
 
-      #imagem { top: 110%; left: 75%; }
-      #imagem2 { top: 70%; left: 75%; }
-      #imagem3 { top: 70%; left: 10%; }
-      #imagem4 { top: 110%; left: 10%; }
+      #imagem { top: 115%; left: 72%; }
+      #imagem2 { top: 75%; left: 72%; }
+      #imagem3 { top: 75%; left: 10%; }
+      #imagem4 { top: 115%; left: 10%; }
 
       #butao {
         width: 600px;
         height: 200px;
         font-size: 100px;
-        margin-top: 2500px;
+        margin-top: 2600px;
       }
 
       #p3 {
         width: 600px;
         height: 200px;
-        font-size: 100px;
-        margin-top: -450px;
+        font-size: 90px;
+        margin-top: -400px;
       }
     }
   </style>
